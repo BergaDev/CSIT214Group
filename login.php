@@ -36,6 +36,7 @@ do {
       }
   } else {
       echo "No rows match search";
+      setcookie("loginAuth", "noAuth", time() + 2 * 24 * 60 * 60);
       $looper = true;
   }
 } while ($looper == false);
