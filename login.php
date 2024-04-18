@@ -27,7 +27,7 @@ do {
             $UserIDVar = $row["UserID"];
             echo "UserID from row: " . $UserIDVar;
             $CookieSave = "userID:" . $UserIDVar;
-            setcookie("loginAuth", $CookieSave, time() + 2 * 24 * 60 * 60);
+            setrawcookie("loginAuth", $CookieSave, time() + 2 * 24 * 60 * 60);
             $looper = true;
           } else {
             echo "No Match";
@@ -44,4 +44,6 @@ do {
 //setcookie("loginAuth", "userID:" . 69, time() + 2 * 24 * 60 * 60);
 
 echo "Cookie data is: " . $_COOKIE["loginAuth"];
+//Have a check here, the refering page should pass a value that tells this where to go
+header("Location: booking.html");
 ?>
