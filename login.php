@@ -13,24 +13,34 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT UserPassword FROM userAccount WHERE UserName = '$uName'";
+$sql = "SELECT UserPassword, UserID FROM userAccount WHERE UserName = '$uName'";
 
 $result = $conn->query($sql);
+$looper = false;
 
-if ($result->num_rows > 0) {
-    // Output data of each row
-    while($row = $result->fetch_assoc()) {
-        if ($row["UserPassword"] == $uPassword){
-          echo "User Exists";
-        } else {
-          echo "No Match";
-        }
-    }
-} else {
-    echo "No rows match search";
-}
+do {
+  if ($result->num_rows > 0) {
+      // Output data of each row
+      while($row = $result->fetch_assoc()) {
+          if ($row["UserPassword"] == $uPassword){
+            echo "User Exists";
+            $UserIDVar = $row["UserID"];
+            echo "UserID from row: " . $UserIDVar;
+            $CookieSave = "userID:" . $UserIDVar;
+            setcookie("loginAuth", $CookieSave, time() + 2 * 24 * 60 * 60);
+            $looper = true;
+          } else {
+            echo "No Match";
+            $looper = true;
+          }
+      }
+  } else {
+      echo "No rows match search";
+      $looper = true;
+  }
+} while ($looper == false);
 
-setcookie("loginAuth", "userID:" . 69, time() + 2 * 24 * 60 * 60);
+//setcookie("loginAuth", "userID:" . 69, time() + 2 * 24 * 60 * 60);
 
-echo "User ID is: " . $_COOKIE["loginAuth"];
+echo "Cookie data is: " . $_COOKIE["loginAuth"];
 ?>
