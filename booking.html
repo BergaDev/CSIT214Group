@@ -3,9 +3,23 @@
 <html lang="en">
   <body>
 
+    <div id="check">If you're seeing this you're not logged in</div>
+
     <script>
       let cookieVal = decodeURI(document.cookie);
-      alert("Cookie is: " + cookieVal);
+      
+      if (cookieVal == "userID:noAuth"){
+
+      } else {
+        alert("Cookie is: " + cookieVal);
+
+      }
+
+    if (typeof("loginAuth")  === 'undefined'){
+     console.log('Cookie does not exist');
+    } else {
+     console.log('Found cookie');
+    }
     </script>
   </body>
 </html>
