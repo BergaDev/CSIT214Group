@@ -4,6 +4,7 @@
   <style>
     body {
       background-color: #272727;
+      color: white;
     }
   </style>
 <body>
@@ -19,6 +20,27 @@
     <label for="uPassword"> Password</label>
     <input type="text" id="uPassword" name="uPassword"><br>
     <input type="submit" value="Submit">
+  </form>
+
+  <form method="post" action="booking.html">
+    <input type="submit" value="Login as Guest">
+    <script>
+      function deleteCookie(cookieName) {
+          document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      }
+      function deleteAllCookies() {
+          var cookies = document.cookie.split(";");
+
+          for (var i = 0; i < cookies.length; i++) {
+              var cookie = cookies[i].trim().split("=");
+              deleteCookie(cookie[0]);
+          }
+      }
+      deleteAllCookies();
+
+      //Create the guest cookie, above code should really only matter in testing atm
+      document.cookie = "userID:Guest;";
+    </script>
   </form>
 </p1>
 

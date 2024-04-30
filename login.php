@@ -13,34 +13,25 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT UserPassword, UserID FROM userAccount WHERE UserName = '$uName'";
+$sql = "SELECT UserPassword, UserID FROM userAccount WHERE UserName = '$uName' AND UserPassword = '$uPassword'";
 
 $result = $conn->query($sql);
 $looper = false;
 
-do {
   if ($result->num_rows > 0) {
       // Output data of each row
       while($row = $result->fetch_assoc()) {
-          if ($row["UserPassword"] == $uPassword){
             echo "User Exists";
             $UserIDVar = $row["UserID"];
             echo "UserID from row: " . $UserIDVar;
             $CookieSave = $UserIDVar;
             setrawcookie("loginAuth", $CookieSave, time() + 2 * 24 * 60 * 60);
             $looper = true;
-          } else {
-            echo "No Match";
-            setcookie("loginAuth", "noAuth", time() + 2 * 24 * 60 * 60);
-            $looper = true;
           }
-      }
   } else {
       echo "No rows match search";
-      setcookie("loginAuth", "noAuth", time() + 2 * 24 * 60 * 60);
-      $looper = true;
-  }
-} while ($looper == false);
+      header("refresh:2;url=login.html");
+      }
 
 //setcookie("loginAuth", "userID:" . 69, time() + 2 * 24 * 60 * 60);
 
