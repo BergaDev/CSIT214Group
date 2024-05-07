@@ -37,5 +37,5 @@ $looper = false;
 
 echo "Cookie data is: " . $_COOKIE["loginAuth"];
 //Have a check here, the refering page should pass a value that tells this where to go
-header("refresh:1;url=booking.html");
+header("refresh:1;url=account.php");
 ?>
