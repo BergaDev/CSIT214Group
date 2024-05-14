@@ -4,8 +4,8 @@ ini_set('display_errors', 1);
 
 var_dump($_POST);
 
-$uName = $_POST['uName'];
-$uPassword = $_POST['uPassword'];
+$uName = $_POST['email'];
+$uPassword = $_POST['password'];
 
 $conn = mysqli_connect('localhost', 'CSIT214GROUP', 'CSIT214!','csit214');
 
