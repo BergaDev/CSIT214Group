@@ -13,7 +13,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT UserPassword, UserID FROM userAccount WHERE UserName = '$uName' AND UserPassword = '$uPassword'";
+$sql = "SELECT UserID FROM userAccount WHERE EmailAddress = '$uName' AND UserPassword = '$uPassword'";
 
 $result = $conn->query($sql);
 $looper = false;
