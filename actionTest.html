@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DB in HTML Test</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<h2>DB in HTML Test</h2>
+<button id="fetchData">Select Name</button>
+<button id="performAction" do>Do Something</button>
+<p id="output"></p><br>
+
+<body onload="loadName()">Hello  <span id="namePlaceholder"></span></body><br>
+
+<body onload="loadLounges()">Lounge Name: <span id="lounges"></span></body>
+
+<script>
+  function loadName(){
+    console.log("Hello world!");
+    $.ajax({
+            url: "actionTest.php",
+            type: "GET",
+            data: { action: 'fetchData' },
+            success: function(data) {
+                $("#namePlaceholder").html(data);
+            }
+        });
+  }
+
+  function loadLounges(){
+    console.log("Hello world!");
+    $.ajax({
+            url: "actionTest.php",
+            type: "GET",
+            data: { action: 'getLounges' },
+            success: function(data) {
+                $("#lounges").html(data);
+            }
+        });
+  }
+
+$(document).ready(function(){
+    $("#fetchData").click(function(){
+        $.ajax({
+            url: "actionTest.php",
+            type: "GET",
+            data: { action: 'fetchData' }, // Action name in php
+            success: function(data) {
+                $("#output").html(data);
+            }
+        });
+    });
+
+    $("#performAction").click(function(){
+        $.ajax({
+            url: "actionTest.php",
+            type: "GET",
+            data: { action: 'performAction' }, // Action name in php
+            success: function(data) {
+                $("#output").html(data);
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>
