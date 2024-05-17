@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | FlyDreamAir</title>
+  <title onload=loginCheck()">Login | FlyDreamAir</title>
   <style>
     * {
       padding: 0;
@@ -159,6 +159,21 @@
       </div>
     </form>
   </div>
+
+  <script>
+
+    function loginCheck(){
+      let cookieVal = decodeURI(document.cookie);
+      
+      if (cookieVal.includes("loginAuth")){
+        alert("Cookie is: " + cookieVal);
+      } else {
+        alert("Cookie is: " + cookieVal);
+
+      }
+    }
+    
+  </script>
 </body>
 
 </html>

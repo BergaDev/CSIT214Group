@@ -25,17 +25,19 @@ $looper = false;
       while($row = $result->fetch_assoc()) {
             //echo "User Exists";
             $UserIDVar = $row["UserID"];
-            //echo "UserID from row: " . $UserIDVar;
-            $CookieSave = $UserIDVar;
-            setcookie("loginAuth", $CookieSave, time() + (2 * 24 * 60 * 60), "/");
+            if (is_nan($UserIDVar)){
+              echo "Check login credentials";
+              header("refresh:3;url=login.html");
+            } else{
+              $CookieSave = $UserIDVar;
+              setcookie("loginAuth", $CookieSave, time() + (2 * 24 * 60 * 60), "/");
+              header("refresh:0.5;url=actionTest.html");
+            }
+            
           }
   } else {
-      echo "No rows match search";
+      echo "Check login credentials";
       header("refresh:2;url=login.html");
       }
 
-//echo "Cookie data is: " . $_COOKIE["loginAuth"];
-//Have a check here, the refering page should pass a value that tells this where to go
-echo "Login Successful";
-header("refresh:1;url=actionTest.html");
 ?>
