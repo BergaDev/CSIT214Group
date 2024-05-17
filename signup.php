@@ -6,7 +6,7 @@ var_dump($_POST);
 
 $fName = $_POST['fName'];
 $lName = $_POST['lName'];
-$eMail = $_POST['eMail'];
+$eMail = $_POST['email'];
 $pNum = $_POST['pNum'];
 $uPassword = $_POST['pWord'];
 $randomNumber = rand(1, 2999);
