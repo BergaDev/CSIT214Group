@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <html lang="en">
   <style>
     body {
@@ -9,23 +10,94 @@
   </style>
   <body>
 
-    <div id="check">If you're seeing this you're not logged in</div>
+    <body onload="loadName()">Hello <span id="namePlaceholder" class="namePlaceholder"></span></body>
+
+    <form action="booking.php" method="post">
+      <!-- Day of the Week Dropdown -->
+      <label for="day">Choose a day:</label>
+      <select id="day" name="day" required>
+          <option value="" disabled selected>Select a day</option>
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+          <option value="Sunday">Sunday</option>
+      </select>
+      <br><br>
+
+      <!-- Time Input -->
+      <label for="time">Select a time:</label>
+      <select id="time" name="time" required>
+        <option value="" disabled selected>Select a Time</option>
+        <option value="12AM-4AM">12AM-4AM</option>
+        <option value="4AM-8AM">4AM-8AM</option>
+        <option value="8AM-12PM">8AM-12PM</option>
+        <option value="12PM-4PM">12PM-4PM</option>
+        <option value="4PM-8PM">4PM-8PM</option>
+        <option value="8PM-12AM">8PM-12AM</option>
+      </select>
+      <br><br>
+
+      <!-- Location Dropdown -->
+      <label for="location">Choose a location:</label>
+      <select id="location" name="location" required>
+          <option value="" disabled selected>Select a location</option>
+          <option value="1">Sydney</option>
+          <option value="Melbourne">Melbourne</option>
+      </select>
+      <br><br>
+
+      <input type="submit" value="Submit">
+  </form>
 
     <script>
-      let cookieVal = decodeURI(document.cookie);
-      
-      if (cookieVal == "loginAuth:Guest"){
-
-      } else {
-        alert("Cookie is: " + cookieVal);
-
+      function loadName(){
+        $.ajax({
+                url: "actionTest.php",
+                type: "GET",
+                data: { action: 'fetchData' },
+                success: function(data) {
+                    $("#namePlaceholder").html(data);
+                }
+            });
       }
-
-    if (typeof("loginAuth")  === 'undefined'){
-     console.log('Cookie does not exist');
-    } else {
-     console.log('Found cookie');
-    }
+    
+      function loadLounges(){
+        $.ajax({
+                url: "actionTest.php",
+                type: "GET",
+                data: { action: 'getLounges' },
+                success: function(data) {
+                    $("#lounges").html(data);
+                }
+            });
+      }
+    
+    $(document).ready(function(){
+        $("#fetchData").click(function(){
+            $.ajax({
+                url: "actionTest.php",
+                type: "GET",
+                data: { action: 'fetchData' }, // Action name in php
+                success: function(data) {
+                    $("#output").html(data);
+                }
+            });
+        });
+    
+        $("#performAction").click(function(){
+            $.ajax({
+                url: "actionTest.php",
+                type: "GET",
+                data: { action: 'getLounges' }, // Action name in php
+                success: function(data) {
+                    $("#lounges").html(data);
+                }
+            });
+        });
+    });
     </script>
   </body>
 </html>

@@ -12,9 +12,9 @@ $userID = 0;
 
 if (isset($_COOKIE["loginAuth"])) {
   $userID = $_COOKIE["loginAuth"];
-  //echo "UserID from cookie: " . $userID;
+  
 } else {
-  //echo "Cookie 'loginAuth' not set.";
+  
 }
 
 
@@ -50,8 +50,6 @@ function performAction() {
 }
 
 function getLounges(){
-  //echo "loungeNames";
-  echo "getting here?";
   $conn = mysqli_connect('localhost', 'CSIT214GROUP', 'CSIT214!','csit214');
 
     if ($conn->connect_error) {
@@ -67,10 +65,9 @@ function getLounges(){
             //echo "User Exists";
             $Name = $row["loungeName"];
             echo $Name;
-            echo "test?";
           }
   } else {
-      echo "No rows match search";
+      echo "No airports!?";
       }
 }
 
