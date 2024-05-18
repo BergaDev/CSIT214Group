@@ -9,27 +9,14 @@
     }
   </style>
   <script>
-    function getCookie(name) {
-        let matches = document.cookie.match(new RegExp(
-            "(?:^|; )" + name.replace(/([.$?*|{}()[]\\\/+^])/g, '\\$1') + "=([^;]*)"
-        ));
-        return matches ? decodeURIComponent(matches[1]) : undefined;
+    let cookieCheck = document.cookie;
+    if (cookieCheck.includes("loginAuth")){
+      console.log("Yep");
+      //location.href = 'booking.html';
+    } else {
+      console.log("Nope");
+      location.href = 'login.html';
     }
-  
-    // Check for cookies
-    function checkLoginAuth() {
-        let loginAuth = getCookie("loginAuth");
-        if (loginAuth) {
-            console.log("Cookie found: loginAuth = " + loginAuth);
-            
-        } else {
-            console.log("Cookie not found");
-            window.location.href = "login.html";
-        }
-    }
-  
-    // OnLoad func
-    window.onload = checkLoginAuth;
   </script>
 
   <body>
