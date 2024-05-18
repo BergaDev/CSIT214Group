@@ -125,6 +125,25 @@
   </style>
 </head>
 
+<script>
+  function getCookie(name) {
+      let matches = document.cookie.match(new RegExp(
+          "(?:^|; )" + name.replace(/([.$?*|{}()[]\\\/+^])/g, '\\$1') + "=([^;]*)"
+      ));
+      return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
+  function checkLoginAuth() {
+      let loginAuth = getCookie("loginAuth");
+      if (loginAuth) {
+          console.log("Cookie found: loginAuth = " + loginAuth);
+          window.location.href = "booking.html";
+      } else {
+          console.log("Cookie not found");
+      }
+  }
+  window.onload = checkLoginAuth;
+</script>
+
 <body>
   <div class="login-container">
     <h2 class="title">

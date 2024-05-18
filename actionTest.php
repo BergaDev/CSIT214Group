@@ -1,5 +1,4 @@
 <?php
-// Method to fetch name
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -19,7 +18,6 @@ if (isset($_COOKIE["loginAuth"])) {
 
 
 function fetchData($userID) {
-    // Simulate fetching data from a database
     //echo $userID;
     $conn = mysqli_connect('localhost', 'CSIT214GROUP', 'CSIT214!','csit214');
 
@@ -38,7 +36,7 @@ function fetchData($userID) {
             echo $Name;
           }
   } else {
-      echo "No rows match search";
+      echo "Not logged in, should've redirected already";
       }
 
 }
