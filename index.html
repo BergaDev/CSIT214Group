@@ -10,16 +10,12 @@
     * {
       padding: 0;
       margin: 0;
-
     }
 
-    body,
-    html {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #F4F6F9;
-      font-weight: 300;
+    body, html {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: #202020;
+      font-weight: 400;
       font-size: large;
     }
 
@@ -27,31 +23,39 @@
       width: 80%;
       margin: 20px auto;
       padding: 20px;
-      background-color: #fff;
+      background-color: #202020;
       display: flex;
       flex-direction: column;
     }
 
     h1 {
-      color: #003580;
-      border-left: 10px solid red;
+      color: #CDCDCD;
+      font-size: 40px;
+      font-weight: 600;
       padding-left: 10px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      color: white;
+      margin-bottom: 10px;
     }
 
     .meal-container {
       display: flex;
       gap: 20px;
-      background-color: #F5F5F5;
+      background-color: #2B2B2B;
+      border: 1px solid #1D1D1D;
+      border-radius: 10px;
       margin-bottom: 30px;
+      padding: 20px;
     }
 
     .businessimg {
-      /* width: 300px; */
-      /* height: 100%; */
       display: block;
       margin: auto;
-      /* margin-top: 30px; */
-      /* object-fit: cover; */
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
     }
 
     .meal-info {
@@ -59,19 +63,11 @@
       margin-right: 20px;
     }
 
-    h2 {
-      color: #003580;
-      margin-top: 20px;
-      padding-left: 7px;
-      border-left: 5px solid red;
-    }
-
     p {
       color: #666;
       line-height: 1.5;
       text-align: justify;
       font-weight: 550;
-      /* word-break:break-all; */
       word-wrap: normal;
     }
 
@@ -82,33 +78,37 @@
     }
 
     .menubar {
-      background-color: #202020;
+      background-color: #2B2B2B;
       text-align: center;
+      font-size: 18px;
       height: 48px;
+      border-bottom: 1px solid #1D1D1D;
     }
 
     .menubar ul {
       display: flex;
       align-items: center;
       justify-content: left;
+      color: #9F9F9F;
+    }
+    .menubar ul a {
+      color: #CDCDCD;
+    }
+    .menubar ul a:hover {
+      color: white;
     }
 
     .menubar ul li {
       display: inline-block;
-      width: 100px;
-      /* margin-left: 1rem;
-      margin-right: 1rem; */
-      margin: 0.5rem 1rem 0.5rem 1rem;
-      padding: 1rem;
+      width: auto;
+      margin-inline: 10px;
+      line-height: 48px;
       transition: all .5s ease;
     }
 
     .menubar ul li:hover {
-      background-color: #595959;
-      border-radius: 0.3rem;
-      text-decoration: underline;
+      border-radius: 4px;
       text-decoration-color: white;
-      text-underline-offset: 8px;
     }
 
     .test_sub_menu {
@@ -119,25 +119,21 @@
     .menubar ul li:hover .test_sub_menu {
       display: block;
       position: absolute;
-      background-color: #595959;
-      /* top: 100%; */
-      margin-left: -2rem;
-      margin-top: 1.5rem;
-      /* margin: 0.5rem 1rem 0.5rem 1rem;
-      padding: 1rem; */
-      /* transition: all .5s ease; */
-      /* transition: all .5s ease-in-out; */
+      margin-top: 1px;
+      background-color: rgba(43, 43, 43, 0.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(43, 43, 43, 0.2);
+      border-radius: 5px;
     }
 
     .menubar ul li:hover .test_sub_menu ul {
       flex-direction: column;
-      /* margin: 1rem; */
     }
 
     .menubar ul li:hover .test_sub_menu ul li {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: left;
+      justify-content: left;
     }
 
     .footer {
@@ -172,38 +168,53 @@
 
   <nav class="menubar">
     <ul>
-      <li style="color: #ffffff">
-        <img src="images/icons/ic_fluent_airplane_20_regular.svg">
-        Fly Dream Air
+      <li>
+        <a href="index.html" style="color: white;">
+          <img src="images/icons/ic_fluent_airplane_20_regular.svg">
+          Fly Dream Air
+        </a>
       </li>
-      <li><a href="#">Home Page</a>
+      <li>
+        <a href="#">Book</a>
         <div class="test_sub_menu">
           <ul>
-            <li><a href="">test1</a></li>
-            <li><a href="">test2</a></li>
-            <li><a href="">test3</a></li>
+            <li>
+              <a href="">Sydney</a>
+            </li>
+            <li>
+              <a href="">London</a>
+            </li>
+            <li>
+              <a href="">Tokyo</a>
+            </li>
+            <li>
+              <a href="">Hong Kong</a>
+            </li>
+            <li>
+              <a href="">Paris</a>
+            </li>
           </ul>
         </div>
       </li>
-      <li><a href="#">Book</a></li>
-      <li><a href="#">Plan</a>
-        <div class="test_sub_menu">
-          <ul>
-            <li><a href="">test1</a></li>
-            <li><a href="">test2</a></li>
-            <li><a href="">test3</a></li>
-          </ul>
-        </div>
+      <li>
+        <a href="#">Catering</a>
       </li>
-      <li><a href="#">Help</a></li>
-      <li><a href="testLinks.html">Other</a></li>
+      <li>
+        <a href="#">Membership</a>
+      </li>
+      <li>
+        <a href="#">Help</a>
+      </li>
+      <li style="margin-left: auto; margin-right: 20px;">
+        <a href="login.html">Login</a>
+      </li>
     </ul>
   </nav>
 
   <div class="content-wrapper">
     <h1>Business Class Meals</h1>
     <div class="meal-container">
-      <img src="Business Class Catering on Long-haul Flights.jpg" alt="Business Class Meal" class="businessimg">
+      <img src="images/catering/1.jpg" alt="Business Class Meal" class="businessimg">
       <div class="meal-info">
         <h2>Business Class Catering on Long-haul Flights</h2>
         <p>We provide passengers with at least two meal services on long haul flights longer than 8 hours, served with
