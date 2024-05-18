@@ -31,7 +31,7 @@ $looper = false;
             } else{
               $CookieSave = $UserIDVar;
               setcookie("loginAuth", $CookieSave, time() + (2 * 24 * 60 * 60), "/");
-              header("refresh:0.5;url=actionTest.html");
+              header("refresh:0.5;url=booking.html");
             }
             
           }

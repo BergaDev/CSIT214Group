@@ -36,6 +36,7 @@ $result = $conn->query($sql);
             echo "UserID from row: " . $UserIDVar;
             $CookieSave = $UserIDVar;
             setrawcookie("loginAuth", $CookieSave, time() + 2 * 24 * 60 * 60);
+            header("refresh:1;url=booking.html");
           }
   } else {
       echo "Save error try again?";
