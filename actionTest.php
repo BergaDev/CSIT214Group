@@ -12,9 +12,9 @@ $userID = 0;
 
 if (isset($_COOKIE["loginAuth"])) {
   $userID = $_COOKIE["loginAuth"];
-  //echo "UserID from cookie: " . $userID;
+  
 } else {
-  //echo "Cookie 'loginAuth' not set.";
+  
 }
 
 
