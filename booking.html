@@ -21,7 +21,10 @@
 
   <body>
 
-    <body onload="loadName()">Hello <span id="namePlaceholder" class="namePlaceholder"></span></body>
+    <button onclick="goHome()">Home</button>
+    <button onclick="loadConf()">View Your Bookings</button><br>
+
+    <body onload="loadName()">Hello <span id="namePlaceholder" class="namePlaceholder"></span></body><br>
 
     <form action="booking.php" method="post">
       <!-- Day of the Week Dropdown -->
@@ -56,7 +59,10 @@
       <select id="location" name="location" required>
           <option value="" disabled selected>Select a location</option>
           <option value="1">Sydney</option>
-          <option value="2">Melbourne</option>
+          <option value="2">London</option>
+          <option value="3">Tokyo</option>
+          <option value="4">Hong Kong</option>
+          <option value="5">Paris</option>
       </select>
       <br><br>
 
@@ -64,6 +70,14 @@
   </form>
 
     <script>
+      function goHome(){
+        window.location.href = 'index.html';
+      }
+
+      function loadConf(){
+        window.location.href = 'conf.html';
+      }
+
       function loadName(){
         $.ajax({
                 url: "actionTest.php",

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Table</title>
+    <style>
+      body {
+        background-color: #272727;
+        color: white;
+      }
+    </style>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid white;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: black;
+        }
+    </style>
+
+<script>
+  let cookieCheck = document.cookie;
+  if (cookieCheck.includes("loginAuth")){
+    console.log("Yep");
+    //location.href = 'booking.html';
+  } else {
+    console.log("Nope");
+    location.href = 'login.html';
+  }
+</script>
+</head>
+<body>
+  <button onclick="goHome()">Home</button>
+    <h1>Your Bookings</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Lounge Name</th>
+                <th>Day</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody id="users-table-body">
+        </tbody>
+    </table>
+
+    <script>
+        function goHome(){
+        window.location.href = 'index.html';
+      }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('conf.php')
+                .then(response => response.json())
+                .then(data => {
+                    const tbody = document.getElementById('users-table-body');
+
+                    if (data.error) {
+                        console.error(data.error);
+                        tbody.innerHTML = `<tr><td colspan="4">${data.error}</td></tr>`;
+                        return;
+                    }
+
+                    if (data.message) {
+                        tbody.innerHTML = `<tr><td colspan="4">${data.message}</td></tr>`;
+                        return;
+                    }
+
+                    data.forEach(booking => {
+                      let loungeID = booking.loungeID;
+                      if (loungeID == 1){
+                        loungeID = 'Sydney Airport';
+                      } else if (loungeID == 2){
+                        loungeID = 'London Airport';
+                      } else if (loungeID == 3){
+                        loungeID = 'Tokyo Airport';
+                      } else if (loungeID == 4){
+                        loungeID = 'Hong Kong Airport';
+                      } else if (loungeID == 5){
+                        loungeID = 'Paris Airport';
+                      }
+
+
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${booking.bookingID}</td>
+                            <td>${loungeID}</td>
+                            <td>${booking.day}</td>
+                            <td>${booking.time}</td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    document.getElementById('users-table-body').innerHTML = `<tr><td colspan="4">Error fetching data</td></tr>`;
+                });
+        });
+    </script>
+</body>
+</html>

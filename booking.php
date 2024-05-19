@@ -34,5 +34,5 @@ if ($result->num_rows > 0) {
   }
 
 echo "Booking saved! Enjoy your flight!";
-header("refresh:2;url=index.html");
+header("refresh:2;url=conf.html");
 ?>
