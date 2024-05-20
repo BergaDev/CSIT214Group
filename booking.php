@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
         $gotName = $row['loungeName'];
 
         if (strpos($gotName, $location) !== false) {
-            echo "Matches";
+            //echo "Matches";
             $sql = "INSERT INTO `bookings` (`bookingID`, `userID`, `loungeID`, `day`, `time`) 
                     VALUES (NULL, '$userID', '$location', '$day', '$time');";
 
