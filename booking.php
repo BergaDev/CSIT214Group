@@ -41,7 +41,7 @@ if ($result->num_rows > 0) {
                             
                           }
                     } else {
-                      echo "Very Wrong!";
+                      //echo "Very Wrong!";
                       }
 
                     echo "Booking saved! Enjoy your flight!";
@@ -53,22 +53,6 @@ if ($result->num_rows > 0) {
 } else {
     //echo "Bad Side";
 }
-
-
-$sql = "INSERT INTO `bookings` (`bookingID`, `userID`, `loungeID`, `day`, `time`) 
-VALUES (NULL, '$userID', '$location', '$day', '$time');";
-
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  // Output data of each row
-  while($row = $result->fetch_assoc()) {
-        //echo "Good side";
-        
-      }
-} else {
-  //echo "Bad Side";
-  }
 
 echo "No Matching Lounge Names, Try Again!";
 header("refresh:5;url=booking.html");
