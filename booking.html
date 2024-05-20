@@ -215,11 +215,12 @@
 
     <body class="hello" onload="loadName()">Hello <span id="namePlaceholder" class="namePlaceholder"></span></body>
 
-    <form action="booking.php" method="post">
+    <form action="booking.php" method="post" id="bookingForm">
       <!-- Day of the Week Dropdown -->
       <div class="form-group">
         <label for="day">Select the date of booking:</label>
         <input type="date" id="day" name="day" required>
+        <input type="submit" value="Submit" class="form-group">
       </div>
 
       <!-- Time Input -->
@@ -271,7 +272,11 @@
             }
         });
 
-        
+        // Set the minimum date to today
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('day').setAttribute('min', today);
+  });
     </script>
 
         
@@ -283,7 +288,10 @@
     </form>
   </div>
 
-  <script>
+  <script> 
+  
+  
+
     function goHome(){
       window.location.href = 'index.html';
     }
@@ -337,6 +345,20 @@
             });
         });
     });
+
+  
+  // Validate date on form submission
+  function validateDate(event) {
+    const selectedDate = document.getElementById('day').value;
+    const today = new Date().toISOString().split('T')[0];
+    if (selectedDate < today) {
+      event.preventDefault();
+      document.getElementById('date-message').innerText = 'Please select a valid date.';
+    }
+  }
+
+  document.getElementById('bookingForm').addEventListener('submit', validateDate);
+</script>
   </script>
 
 <script>
