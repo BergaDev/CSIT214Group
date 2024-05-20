@@ -319,6 +319,24 @@
         putting you on the path to extraordinary.</p>
     </div>
   </section>
+
+  <script>
+    //Dont remove this bit, it's the logout button
+    let loginCheck = false;
+    let cookieCheck2 = document.cookie;
+    if (cookieCheck2.includes("loginAuth")){
+      console.log("Yep");
+      //location.href = 'booking.html';
+      document.getElementById('loginButton').style.display = 'none';
+      document.getElementById('logoutButton').style.display = 'block';
+    } else {
+      console.log("Nope");
+      //location.href = 'login.html';
+      document.getElementById('loginButton').style.display = 'block';
+      document.getElementById('logoutButton').style.display = 'none';
+    }
+  
+  </script>
 </body>
 
 </html>
