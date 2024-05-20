@@ -28,8 +28,9 @@
 
     <form action="booking.php" method="post">
       <!-- Day of the Week Dropdown -->
-      <label for="day">Choose a day:</label>
-      <select id="day" name="day" required>
+      <label for="date">Select the date of booking:</label>
+      <!--<select id="day" name="day" required>
+        
           <option value="" disabled selected>Select a day</option>
           <option value="Monday">Monday</option>
           <option value="Tuesday">Tuesday</option>
@@ -38,11 +39,13 @@
           <option value="Friday">Friday</option>
           <option value="Saturday">Saturday</option>
           <option value="Sunday">Sunday</option>
-      </select>
+      </select>-->
+      <input type="date" id="date" required>
+
       <br><br>
 
       <!-- Time Input -->
-      <label for="time">Select a time:</label>
+      <label for="time">Select the time of booking:</label>
       <select id="time" name="time" required>
         <option value="" disabled selected>Select a Time</option>
         <option value="12AM-4AM">12AM-4AM</option>
@@ -55,7 +58,7 @@
       <br><br>
 
       <!-- Location Dropdown -->
-      <label for="location">Choose a location:</label>
+      <label for="location">Select your location of booking:</label>
       <select id="location" name="location" required>
           <option value="" disabled selected>Select a location</option>
           <option value="1">Sydney</option>
