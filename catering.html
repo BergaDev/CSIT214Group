@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Class Meals</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body, html {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: #202020;
+      font-weight: 400;
+      font-size: large;
+    }
+
+    .content-wrapper {
+      width: 80%;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #202020;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1 {
+      color: #CDCDCD;
+      font-size: 40px;
+      font-weight: 600;
+      padding-left: 10px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .meal-container {
+      display: flex;
+      gap: 20px;
+      background-color: #2B2B2B;
+      border: 1px solid #1D1D1D;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      padding: 20px;
+    }
+
+    .businessimg {
+      display: block;
+      margin: auto;
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .meal-info {
+      flex-grow: 1;
+      margin-right: 20px;
+    }
+
+    p {
+      color: #666;
+      line-height: 1.5;
+      text-align: justify;
+      font-weight: 550;
+      word-wrap: normal;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      transition: all .3s ease;
+    }
+
+    .menubar {
+      background-color: #2B2B2B;
+      text-align: center;
+      font-size: 18px;
+      height: 48px;
+      border-bottom: 1px solid #1D1D1D;
+    }
+
+    .menubar ul {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      color: #9F9F9F;
+    }
+    .menubar ul a {
+      color: #CDCDCD;
+    }
+    .menubar ul a:hover {
+      color: white;
+    }
+
+    .menubar ul li {
+      display: inline-block;
+      width: auto;
+      margin-inline: 10px;
+      line-height: 48px;
+      transition: all .5s ease;
+    }
+
+    .menubar ul li:hover {
+      border-radius: 4px;
+      text-decoration-color: white;
+    }
+
+    .test_sub_menu {
+      display: none;
+      transition: all .5s ease-in-out;
+    }
+
+    .menubar ul li:hover .test_sub_menu {
+      display: block;
+      position: absolute;
+      margin-top: 1px;
+      background-color: rgba(43, 43, 43, 0.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(43, 43, 43, 0.2);
+      border-radius: 5px;
+    }
+
+    .menubar ul li:hover .test_sub_menu ul {
+      flex-direction: column;
+    }
+
+    .menubar ul li:hover .test_sub_menu ul li {
+      display: flex;
+      align-items: left;
+      justify-content: left;
+    }
+
+    .footer {
+      width: 100%;
+      background-color: #323232;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      /* position: absolute; */
+      /* bottom: 0; */
+      /* left: 0; */
+    }
+
+    .footer a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .footer .social-media {
+      margin-top: 10px;
+    }
+
+    .footer .social-media a {
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+
+
+<body>
+
+  <nav class="menubar">
+    <ul>
+      <li>
+        <a href="index.html" style="color: white;">
+          <img src="images/icons/ic_fluent_airplane_20_regular.svg">
+          Fly Dream Air
+        </a>
+      </li>
+      <li>
+        <a href="booking.html">Book</a>
+        <div class="test_sub_menu">
+        </div>
+      </li>
+      <li>
+        <a href="#">Catering</a>
+      </li>
+      <li>
+        <a href="conf.html">View Bookings</a>
+      </li>
+      <li>
+        <a href="#">Help</a>
+      </li>
+      <li style="margin-left: auto; margin-right: 20px;">
+        <a id="loginButton" class="loginButton" href="login.html">Login</a>
+        <a id="logoutButton" class="logoutButton" href="logout.html" style="display: none;">Logout</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="content-wrapper">
+    <h1>Business Class Meals</h1>
+    <div class="meal-container">
+      <img src="images/catering/1.jpg" alt="Business Class Meal" class="businessimg">
+      <div class="meal-info">
+        <h2>Business Class Catering on Long-haul Flights</h2>
+        <p>We provide passengers with at least two meal services on long haul flights longer than 8 hours, served with
+          the award-winning and elegant bone china and fine cutlery, giving you a luxurious dining experience, with
+          colourful and tempting-smelling dishes.</p>
+        <p>We have prepared a variety of meals for you to select from, including appetizers, salads, main courses,
+          desserts, cheeses of various kinds and fruits. When it comes to main courses, you will be able to taste not
+          only authentic Chinese cuisine, but there are also exquisite Western dishes. Hainan Airlines is one of the few
+          airlines that offer four main course options.</p>
+        <p>As for catering services in the air, you can feel completely at ease. Choose the food you like and enjoy
+          service just like the top restaurants on the ground. Table setting services are provided, with each dish
+          introduced to you one by one.</p>
+        <p>If you wish a faster meal service to spare time for rest, we can also provide quicker options for your
+          convenience.</p>
+        <p>On board, we have different kinds of snacks available at the center bar.</p>
+        <p>Note: There will be some differences for some items on this website owing to different aircraft types and
+          flight routings.</p>
+      </div>
+    </div>
+
+    <div class="meal-container">
+      <h2>Business Class Catering on Short-haul Flights</h2>
+
+      <div class="meal-info">
+
+        <p>We provide passengers with at least two meal services on long haul flights longer than 8 hours, served with
+          the award-winning and elegant bone china and fine cutlery, giving you a luxurious dining experience, with
+          colourful and tempting-smelling dishes.</p>
+        <p>We have prepared a variety of meals for you to select from, including appetizers, salads, main courses,
+          desserts, cheeses of various kinds and fruits. When it comes to main courses, you will be able to taste not
+          only authentic Chinese cuisine, but there are also exquisite Western dishes. Hainan Airlines is one of the few
+          airlines that offer four main course options.</p>
+        <p>As for catering services in the air, you can feel completely at ease. Choose the food you like and enjoy
+          service just like the top restaurants on the ground. Table setting services are provided, with each dish
+          introduced to you one by one.</p>
+        <p>If you wish a faster meal service to spare time for rest, we can also provide quicker options for your
+          convenience.</p>
+        <p>On board, we have different kinds of snacks available at the center bar.</p>
+        <p>Note: There will be some differences for some items on this website owing to different aircraft types and
+          flight routings.</p>
+
+      </div>
+      <div style="margin: auto;">
+        <img src="Business Class Catering on Short-haul Flights.jpg" alt="Business Class Meal" class="businessimg">
+      </div>
+    </div>
+    <div class="meal-container">
+      <img src="Business Class Catering on Short-haul Flights2.jpg" alt="Business Class Meal" class="businessimg">
+      <div class="meal-info">
+        <h2>Business Class Catering on Extra Paid Flights</h2>
+        <p>We provide passengers with at least two meal services on long haul flights longer than 8 hours, served with
+          the award-winning and elegant bone china and fine cutlery, giving you a luxurious dining experience, with
+          colourful and tempting-smelling dishes.</p>
+        <p>We have prepared a variety of meals for you to select from, including appetizers, salads, main courses,
+          desserts, cheeses of various kinds and fruits. When it comes to main courses, you will be able to taste not
+          only authentic Chinese cuisine, but there are also exquisite Western dishes. Hainan Airlines is one of the few
+          airlines that offer four main course options.</p>
+        <p>As for catering services in the air, you can feel completely at ease. Choose the food you like and enjoy
+          service just like the top restaurants on the ground. Table setting services are provided, with each dish
+          introduced to you one by one.</p>
+        <p>If you wish a faster meal service to spare time for rest, we can also provide quicker options for your
+          convenience.</p>
+        <p>On board, we have different kinds of snacks available at the center bar.</p>
+        <p>Note: There will be some differences for some items on this website owing to different aircraft types and
+          flight routings.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let loginCheck = false;
+    let cookieCheck = document.cookie;
+    if (cookieCheck.includes("loginAuth")){
+      console.log("Yep");
+      //location.href = 'booking.html';
+      document.getElementById('loginButton').style.display = 'none';
+      document.getElementById('logoutButton').style.display = 'block';
+    } else {
+      console.log("Nope");
+      //location.href = 'login.html';
+      document.getElementById('loginButton').style.display = 'block';
+      document.getElementById('logoutButton').style.display = 'none';
+    }
+  
+  </script>
+
+  <div class="footer">
+    <p>© 2024 Company Name. All rights reserved.</p>
+    <div style="margin-bottom: 20px;">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </div>
+</body>
+
+</html>
