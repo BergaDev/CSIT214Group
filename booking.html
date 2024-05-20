@@ -168,14 +168,14 @@
 </head>
 
   <script>
-    /*let cookieCheck = document.cookie;
+    let cookieCheck = document.cookie;
     if (cookieCheck.includes("loginAuth")){
       console.log("Yep");
       //location.href = 'booking.html';
     } else {
       console.log("Nope");
       location.href = 'login.html';
-    }*/
+    }
   </script>
 
   <body>
@@ -309,6 +309,23 @@
         });
     });
   </script>
+
+<script>
+  let loginCheck = false;
+  let cookieCheck2 = document.cookie;
+  if (cookieCheck2.includes("loginAuth")){
+    console.log("Yep");
+    //location.href = 'booking.html';
+    document.getElementById('loginButton').style.display = 'none';
+    document.getElementById('logoutButton').style.display = 'block';
+  } else {
+    console.log("Nope");
+    //location.href = 'login.html';
+    document.getElementById('loginButton').style.display = 'block';
+    document.getElementById('logoutButton').style.display = 'none';
+  }
+
+</script>
 </body>
 
 </html>
