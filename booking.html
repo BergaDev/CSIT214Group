@@ -226,7 +226,7 @@
       <!-- Time Input -->
       <div class="form-group">
         <label for="time">Select the time of booking:</label>
-        <select id="time" name="time" required>
+        <select id="time" name="time" required maxlength="40">
           <option value="" disabled selected>Select a Time</option>
           <option value="12AM-4AM">12AM-4AM</option>
           <option value="4AM-8AM">4AM-8AM</option>
@@ -238,18 +238,8 @@
       </div>
 
       <!-- Location Dropdown -->
-      <!--
-      <div class="form-group">
-        <label for="location">Select your location of booking:</label>
-        <select id="location" name="location" required>
-          <option value="" disabled selected>Select a location</option>
-          <option value="1">Sydney</option>
-          <option value="2">London</option>
-          <option value="3">Tokyo</option>
-          <option value="4">Hong Kong</option>
-          <option value="5">Paris</option>
-        -->
-        <input type="text" id="location" placeholder="Enter City">
+        <label for="location">Select the location:</label>
+        <input type="text" id="location" placeholder="Enter City" required name="location">
     <div id="dropdown" class="dropdown"></div>
     <script>
         const cities = ["Sydney", "London", "Tokyo", "Hong Kong", "Paris"];
@@ -287,7 +277,7 @@
         </select>
       </div>
 
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" class="form-group">
     </form>
   </div>
 
