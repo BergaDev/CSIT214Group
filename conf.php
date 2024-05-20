@@ -27,7 +27,7 @@ if ($userID == 0) {
 }
 
 // SQL query to fetch data
-$sql = "SELECT * FROM `bookings` WHERE `userID` = '$userID';";
+$sql = "SELECT * FROM `bookings` WHERE `userID` = '$userID' ORDER BY `bookings`.`day` ASC;";
 $result = $conn->query($sql);
 
 if (!$result) {
