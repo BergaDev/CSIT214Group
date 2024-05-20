@@ -164,6 +164,8 @@
   </style>
 </head>
 
+
+
 <body>
 
   <nav class="menubar">
@@ -189,7 +191,8 @@
         <a href="#">Help</a>
       </li>
       <li style="margin-left: auto; margin-right: 20px;">
-        <a href="login.html">Login</a>
+        <a id="loginButton" class="loginButton" href="login.html">Login</a>
+        <a id="logoutButton" class="logoutButton" href="logout.html" style="display: none;">Logout</a>
       </li>
     </ul>
   </nav>
@@ -266,6 +269,23 @@
       </div>
     </div>
   </div>
+
+  <script>
+    let loginCheck = false;
+    let cookieCheck = document.cookie;
+    if (cookieCheck.includes("loginAuth")){
+      console.log("Yep");
+      //location.href = 'booking.html';
+      document.getElementById('loginButton').style.display = 'none';
+      document.getElementById('logoutButton').style.display = 'block';
+    } else {
+      console.log("Nope");
+      //location.href = 'login.html';
+      document.getElementById('loginButton').style.display = 'block';
+      document.getElementById('logoutButton').style.display = 'none';
+    }
+  
+  </script>
 
   <div class="footer">
     <p>© 2024 Company Name. All rights reserved.</p>
