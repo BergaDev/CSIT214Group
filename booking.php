@@ -1,10 +1,10 @@
 <?php
 
-/*
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 var_dump($_POST);
-*/
+
 
 $conn = mysqli_connect('localhost', 'CSIT214GROUP', 'CSIT214!','csit214');
 if ($conn->connect_error) {
