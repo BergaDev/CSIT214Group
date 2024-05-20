@@ -28,7 +28,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // Output data of each row
   while($row = $result->fetch_assoc()) {
-        echo "Good side";
+        //echo "Good side";
         
       }
 } else {
