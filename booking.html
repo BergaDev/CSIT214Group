@@ -2,106 +2,289 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book | FlyDreamAir</title>
   <style>
-    body {
-      background-color: #272727;
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body, html {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: #202020;
+      font-weight: 400;
+      font-size: large;
+    }
+    .menubar {
+      background-color: #2B2B2B;
+      text-align: center;
+      font-size: 18px;
+      height: 48px;
+      border-bottom: 1px solid #1D1D1D;
+    }
+    .menubar ul {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      color: #9F9F9F;
+    }
+    .menubar ul a {
+      color: #CDCDCD;
+      font-weight: 400;
+    }
+    .menubar ul a:hover {
       color: white;
     }
+    .menubar ul li {
+      display: inline-block;
+      width: auto;
+      margin-inline: 10px;
+      line-height: 48px;
+      transition: all .5s ease;
+    }
+    .menubar ul li:hover {
+      border-radius: 4px;
+      text-decoration-color: white;
+    }
+    .test_sub_menu {
+      display: none;
+      transition: all .5s ease-in-out;
+    }
+    .menubar ul li:hover .test_sub_menu {
+      display: block;
+      position: absolute;
+      margin-top: 1px;
+      background-color: rgba(43, 43, 43, 0.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(43, 43, 43, 0.2);
+      border-radius: 5px;
+    }
+    .menubar ul li:hover .test_sub_menu ul {
+      flex-direction: column;
+    }
+    .menubar ul li:hover .test_sub_menu ul li {
+      display: flex;
+      align-items: left;
+      justify-content: left;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+      transition: all .3s ease;
+    }
+
+    .title {
+      color: #FFFFFF;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .container {
+      width: 500px;
+      padding: 40px 58px 40px 58px;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #2B2B2B;
+      border: 1px solid #1D1D1D;
+      border-radius: 10px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 500px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    input, select {
+      width: 100%;
+      height: 30px;
+      border: 1px solid #3A3A3A;
+      border-bottom: 1px solid #9F9F9F;
+      border-radius: 5px;
+      /*text-indent: 10px;*/
+      padding-inline: 10px;
+      background-color: #383838;
+      color: #FFFFFF;
+    }
+    input:hover, select:hover {
+      background-color: #3D3D3D;
+    }
+    input:focus, select:focus {
+      border-bottom: 2px solid #1D6394;
+      background-color: #222222;
+    }
+    input::placeholder, select::placeholder {
+      color: #D2D2D2;
+    }
+    input:focus::placeholder, select:focus::placeholder {
+      color: #CDCDCD;
+    }
+
+    input[type=submit] {
+      background-color: #1D6394;
+      height: 30px;
+      width: auto;
+      color: black;
+      padding-inline: 10px;
+      align-self: center;
+      border: 1px solid #2F6F9C;
+      border-bottom: 1px solid #195580;
+      border-radius: 5px;
+      cursor: default;
+    }
+    input[type=submit]:hover {
+      border: 1px solid #2F6991;
+      border-bottom: 1px solid #194F75;
+      background-color: #1D5C88;
+    }
+    input[type=submit]:focus {
+      background-color: #1D557C;
+      border: 1px solid #1D557C;
+      border-bottom: 1px solid #1D557C;
+      color: #0E2A3E;
+    }
+
+    .hello {
+      color: white;
+      font-size: 28px;
+      font-weight: 600;
+    }
+    label {
+      color: #CDCDCD;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
   </style>
+</head>
+
   <script>
-    let cookieCheck = document.cookie;
+    /*let cookieCheck = document.cookie;
     if (cookieCheck.includes("loginAuth")){
       console.log("Yep");
       //location.href = 'booking.html';
     } else {
       console.log("Nope");
       location.href = 'login.html';
-    }
+    }*/
   </script>
 
   <body>
 
-    <button onclick="goHome()">Home</button>
-    <button onclick="loadConf()">View Your Bookings</button><br>
+    <nav class="menubar">
+      <ul>
+        <li>
+          <a href="index.html" style="color: white;">
+            <img src="images/icons/ic_fluent_airplane_20_regular.svg">
+            Fly Dream Air
+          </a>
+        </li>
+        <li>
+          <a href="booking.html">Book</a>
+          <div class="test_sub_menu">
+          </div>
+        </li>
+        <li>
+          <a href="#">Catering</a>
+        </li>
+        <li>
+          <a href="conf.html">View Bookings</a>
+        </li>
+        <li>
+          <a href="#">Help</a>
+        </li>
+        <li style="margin-left: auto; margin-right: 20px;">
+          <a id="loginButton" class="loginButton" href="login.html">Login</a>
+          <a id="logoutButton" class="logoutButton" href="logout.html" style="display: none;">Logout</a>
+        </li>
+      </ul>
+    </nav>
 
-    <body onload="loadName()">Hello <span id="namePlaceholder" class="namePlaceholder"></span></body><br>
+    <!--<button onclick="goHome()">Home</button>
+    <button onclick="loadConf()">View Your Bookings</button><br>-->
+
+    <div class="container">
+
+    <body class="hello" onload="loadName()">Hello <span id="namePlaceholder" class="namePlaceholder"></span></body>
 
     <form action="booking.php" method="post">
       <!-- Day of the Week Dropdown -->
-      <label for="day">Select the date of booking:</label>
-      <!--<select id="day" name="day" required>
-        
-          <option value="" disabled selected>Select a day</option>
-          <option value="Monday">Monday</option>
-          <option value="Tuesday">Tuesday</option>
-          <option value="Wednesday">Wednesday</option>
-          <option value="Thursday">Thursday</option>
-          <option value="Friday">Friday</option>
-          <option value="Saturday">Saturday</option>
-          <option value="Sunday">Sunday</option>
-      </select>-->
-      <input type="date" id="day" required>
-      <br><br>
+      <div class="form-group">
+        <label for="day">Select the date of booking:</label>
+        <input type="date" id="day" required>
+      </div>
 
       <!-- Time Input -->
-      <label for="time">Select the time of booking:</label>
-      <select id="time" name="time" required>
-        <option value="" disabled selected>Select a Time</option>
-        <option value="12AM-4AM">12AM-4AM</option>
-        <option value="4AM-8AM">4AM-8AM</option>
-        <option value="8AM-12PM">8AM-12PM</option>
-        <option value="12PM-4PM">12PM-4PM</option>
-        <option value="4PM-8PM">4PM-8PM</option>
-        <option value="8PM-12AM">8PM-12AM</option>
-      </select>
-      <br><br>
+      <div class="form-group">
+        <label for="time">Select the time of booking:</label>
+        <select id="time" name="time" required>
+          <option value="" disabled selected>Select a Time</option>
+          <option value="12AM-4AM">12AM-4AM</option>
+          <option value="4AM-8AM">4AM-8AM</option>
+          <option value="8AM-12PM">8AM-12PM</option>
+          <option value="12PM-4PM">12PM-4PM</option>
+          <option value="4PM-8PM">4PM-8PM</option>
+          <option value="8PM-12AM">8PM-12AM</option>
+        </select>
+      </div>
 
       <!-- Location Dropdown -->
-      <label for="location">Select your location of booking:</label>
-      <select id="location" name="location" required>
+      <div class="form-group">
+        <label for="location">Select your location of booking:</label>
+        <select id="location" name="location" required>
           <option value="" disabled selected>Select a location</option>
           <option value="1">Sydney</option>
           <option value="2">London</option>
           <option value="3">Tokyo</option>
           <option value="4">Hong Kong</option>
           <option value="5">Paris</option>
-      </select>
-      <br><br>
+        </select>
+      </div>
 
       <input type="submit" value="Submit">
-  </form>
+    </form>
+  </div>
 
-    <script>
-      function goHome(){
-        window.location.href = 'index.html';
-      }
+  <script>
+    function goHome(){
+      window.location.href = 'index.html';
+    }
 
-      function loadConf(){
-        window.location.href = 'conf.html';
-      }
+    function loadConf(){
+      window.location.href = 'conf.html';
+    }
 
-      function loadName(){
-        $.ajax({
-                url: "actionTest.php",
-                type: "GET",
-                data: { action: 'fetchData' },
-                success: function(data) {
-                    $("#namePlaceholder").html(data);
-                }
-            });
-      }
-    
-      function loadLounges(){
-        $.ajax({
-                url: "actionTest.php",
-                type: "GET",
-                data: { action: 'getLounges' },
-                success: function(data) {
-                    $("#lounges").html(data);
-                }
-            });
-      }
-    
+    function loadName(){
+      $.ajax({
+              url: "actionTest.php",
+              type: "GET",
+              data: { action: 'fetchData' },
+              success: function(data) {
+                  $("#namePlaceholder").html(data);
+              }
+          });
+    }
+
+    function loadLounges(){
+      $.ajax({
+              url: "actionTest.php",
+              type: "GET",
+              data: { action: 'getLounges' },
+              success: function(data) {
+                  $("#lounges").html(data);
+              }
+          });
+    }
+
     $(document).ready(function(){
         $("#fetchData").click(function(){
             $.ajax({
@@ -110,10 +293,10 @@
                 data: { action: 'fetchData' }, // Action name in php
                 success: function(data) {
                     $("#output").html(data);
-                }
+                  }
             });
         });
-    
+
         $("#performAction").click(function(){
             $.ajax({
                 url: "actionTest.php",
@@ -125,6 +308,7 @@
             });
         });
     });
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>
