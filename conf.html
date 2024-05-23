@@ -166,6 +166,7 @@
                 <th>Lounge Name</th>
                 <th>Day</th>
                 <th>Time</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody id="users-table-body">
@@ -215,6 +216,7 @@
                             <td>${loungeID}</td>
                             <td>${booking.day}</td>
                             <td>${booking.time}</td>
+                            <td><button onclick="deleteRow(${booking.bookingID})">Delete</button></td>
                         `;
                         tbody.appendChild(row);
                     });
@@ -239,6 +241,11 @@
     //location.href = 'login.html';
     document.getElementById('loginButton').style.display = 'block';
     document.getElementById('logoutButton').style.display = 'none';
+  }
+
+  function deleteRow(int){
+    var ID = int;
+    alert("Boo! ID is: " + ID);
   }
 
 </script>

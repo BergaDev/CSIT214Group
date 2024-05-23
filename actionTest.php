@@ -69,6 +69,28 @@ function getLounges(){
       }
 }
 
+function getAll(){
+  $conn = mysqli_connect('localhost', 'CSIT214GROUP', 'CSIT214!','csit214');
+
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+    $sql = "SELECT * FROM `bookings` ORDER BY `bookings`.`day` ASC;";
+
+    $result = $conn->query($sql);
+
+    $bookings = [];
+    if ($result->num_rows >= 0) {
+        // Output data of each row
+        while($row = $result->fetch_assoc()) {
+              //echo "User Exists";
+              $bookings[] = $row;
+            }
+    } else {
+        echo "No bookings!?";
+        }
+}
+
 // Check which method to call
 if(isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -81,6 +103,9 @@ if(isset($_GET['action'])) {
             break;
           case 'getLounges':
             getLounges();
+            break;
+          case 'getAll':
+            getAll();
             break;
         // Hardcode more when needed
     }
