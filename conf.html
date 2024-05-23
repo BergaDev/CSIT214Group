@@ -92,6 +92,14 @@
         font-weight: 600;
         margin-bottom: 20px;
       }
+
+      .button {
+      background-color: #1D557C;
+      color: white;
+      border: 1px solid #1D557C;
+      border-bottom: 1px solid #1D557C;
+      border-radius: 5%;
+    }
     </style>
     <style>
         table {
@@ -215,7 +223,7 @@
                             <td>${loungeID}</td>
                             <td>${booking.day}</td>
                             <td>${booking.time}</td>
-                            <td><button onclick="deleteRow(${booking.bookingID})">Delete</button></td>
+                            <td><button onclick="deleteRow(${booking.bookingID})" class="button">Delete</button></td>
                         `;
                         tbody.appendChild(row);
                     });
