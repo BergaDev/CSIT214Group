@@ -8,7 +8,7 @@
     }
   </style>
 
-  <body>
+  <body onload="deleteFunc()">
     You have been Logged out
   </body>
 
@@ -16,19 +16,21 @@
     //My hate for deleting cookies is too high
       document.cookie = "loginAuth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       
+      function deleteFunc(){
       let cookieCheck = document.cookie;
-      //alert("Cookie is: " + cookieCheck);
-      //console.log(cookieCheck);
+      alert("Cookie is: " + cookieCheck);
+      console.log(cookieCheck);
       if (cookieCheck.includes("loginAuth")){
         console.log("Yep");
         document.cookie = "loginAuth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       } else {
         console.log("Nope");
         document.cookie = "loginAuth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        window.location.href = "index.html";
+        //window.location.href = "index.html";
       }
       document.cookie = "loginAuth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      window.location.href = "index.html";
+      //window.location.href = "index.html";
+    }
       
   </script>
 </html>
