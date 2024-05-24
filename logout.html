@@ -18,7 +18,7 @@
       
       function deleteFunc(){
       let cookieCheck = document.cookie;
-      alert("Cookie is: " + cookieCheck);
+      //alert("Cookie is: " + cookieCheck);
       console.log(cookieCheck);
       if (cookieCheck.includes("loginAuth")){
         console.log("Yep");
@@ -26,11 +26,12 @@
       } else {
         console.log("Nope");
         document.cookie = "loginAuth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        //window.location.href = "index.html";
+        window.location.href = "index.html";
       }
       document.cookie = "loginAuth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      //window.location.href = "index.html";
+      window.location.href = "index.html";
     }
+    window.location.href = "index.html";
       
   </script>
 </html>
