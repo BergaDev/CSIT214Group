@@ -252,9 +252,8 @@
 
   function deleteRow(int){
     var ID = int;
-    //confirm("Are you sure you want to delete this booking?");
-    //Should not have pressed it then
-    $.ajax({
+    if (confirm("Are you sure you want to delete this booking?")) {
+        $.ajax({
             url: "actionTest.php",
             type: "GET",
             data: { action: 'deleteBooking', id: ID },
@@ -262,7 +261,10 @@
                 location.reload();
             }
         });
-  }
+    } else {
+        console.log("Deletion cancelled");
+    }
+}
 
 </script>
 
